@@ -6,8 +6,6 @@ package ad_practica1.pkg1;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
 /**
  *
@@ -22,6 +20,7 @@ public class AD_Practica11 {
         accesoDOM.abrirXMLaDOM(fichero);
         BufferedReader entrada = null;
         String linea;
+        accesoDOM.recorreDOMyMuestra();
         
         /*try {
             entrada = new BufferedReader(new FileReader(fichero));
