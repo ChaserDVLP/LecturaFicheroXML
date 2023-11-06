@@ -21,18 +21,8 @@ public class AD_Practica11 {
         BufferedReader entrada = null;
         String linea;
         accesoDOM.recorreDOMyMuestra();
-        
-        /*try {
-            entrada = new BufferedReader(new FileReader(fichero));
-            linea = entrada.readLine();
-            while (linea != null) {                
-                System.out.println(linea);
-                linea = entrada.readLine();
-            }
-            
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }*/
+        accesoDOM.insertarLibroEnDom("El nombre del viento", "Patricio", "01-01-2005");
+        accesoDOM.abrirXMLaDOM(fichero);
         
     }
     
