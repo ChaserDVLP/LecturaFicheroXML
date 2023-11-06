@@ -113,4 +113,41 @@ public class AccesoDOM {
         }
     }
     
+    public int insertarLibroEnDom(String titulo, String autor, String fecha) {
+        try {
+            System.out.println("Añadir libro al DOM: "+titulo+";"+autor+";"+fecha);
+            
+            //CREAMOS TITULO
+            //Crea las etiquetas <Titulo></Titulo>
+            Node ntitulo = doc.createElement("Titulo");
+            //Creamos el valor que llevará la etiqueta y se lo asignamos
+            Node ntitulo_text = doc.createTextNode(titulo);
+            ntitulo.appendChild(ntitulo_text);
+            
+            //CREAMOS AUTOR
+            Node nautor = doc.createElement("Autor");
+            Node nautor_text = doc.createTextNode(autor);
+            nautor.appendChild(nautor_text);
+            
+            //CREA LIBRO, con atributo y nodos titulo y autor
+            Node nLibro = doc.createElement("Libro");
+            ((Element)nLibro).setAttribute("publicado", fecha);
+            nLibro.appendChild(ntitulo);
+            nLibro.appendChild(nautor);
+            
+            //AÑADIMOS EL LIBRO AL RAIZ
+            //Insertar saltos de linea
+            nLibro.appendChild(doc.createTextNode("\n"));
+            
+            Node raiz = doc.getFirstChild();
+            raiz.appendChild(nLibro);
+            System.out.println("Libro inserado en DOM");
+            return 0;
+        
+        } catch (Exception e) {
+            System.out.println(e);
+            return -1;
+        }
+    }
+    
 }
