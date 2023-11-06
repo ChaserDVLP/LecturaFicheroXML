@@ -4,13 +4,9 @@
  */
 package ad_practica1.pkg1;
 
-import java.io.BufferedReader;
 import java.io.File;
 
-/**
- *
- * @author xChas
- */
+
 public class AD_Practica11 {
 
     public static void main(String[] args) {
@@ -18,11 +14,10 @@ public class AD_Practica11 {
         AccesoDOM accesoDOM = new AccesoDOM();
         File fichero = new File("libros.xml");
         accesoDOM.abrirXMLaDOM(fichero);
-        BufferedReader entrada = null;
-        String linea;
         accesoDOM.recorreDOMyMuestra();
         accesoDOM.insertarLibroEnDom("El nombre del viento", "Patricio", "01-01-2005");
-        accesoDOM.abrirXMLaDOM(fichero);
+        accesoDOM.borrarNodo("Don Quijote");
+        accesoDOM.guardarDOMcomoArchivo("LibrodeDom.xml");
         
     }
     

@@ -7,11 +7,19 @@ package ad_practica1.pkg1;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 
 
 /**
@@ -153,7 +161,7 @@ public class AccesoDOM {
         }
     }
     
-    public int deleteNode(String tit) {
+    public int borrarNodo(String tit) {
         
         System.out.println("Buscando el Libro "+tit+" para borrarlo");
         try {
@@ -185,6 +193,29 @@ public class AccesoDOM {
         } catch(DOMException e) {
             System.out.println(e);
             return -1;
+        }
+    }
+    
+    void guardarDOMcomoArchivo(String nuevoArchivo) {
+        
+        try {
+            //Definimos el origen
+            Source src = new DOMSource(doc);
+            //Definimos el resultado
+            StreamResult rst = new StreamResult(new File(nuevoArchivo));
+            
+            //Declaramos el transformer que tiene el método .transform() que necesitamos
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            
+            //Opcion para indentar el archivo
+            transformer.setOutputProperty(OutputKeys.INDENT,"yes");
+            
+            //transforma nuestro arbol DOM en memoria al archivo destino
+            transformer.transform(src, (javax.xml.transform.Result)rst);
+            System.out.println("Archivo creado del DOM con exito\n");
+            
+        } catch (IllegalArgumentException | TransformerException e) {
+            System.out.println(e);
         }
     }
     
