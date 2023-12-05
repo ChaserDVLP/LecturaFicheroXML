@@ -151,9 +151,9 @@ public class AccesoDOM {
             Node raiz = doc.getFirstChild();
             raiz.appendChild(nLibro);
             System.out.println("Libro inserado en DOM");
+            System.out.println("Si quieres guardar los cambios en un fichero utiliza el metodo"
+                    + "guardarDOMcomoArchivo(String nombreFichero");
             return 0;
-            
-            //TODO Guardar los cambios 
         
         } catch (DOMException e) {
             System.out.println(e);
@@ -186,9 +186,11 @@ public class AccesoDOM {
                 }
             } 
             System.out.println("Nodo borrado");
+            System.out.println("Si quieres guardar los cambios en un fichero utiliza el metodo"
+                    + "guardarDOMcomoArchivo(String nombreFichero");
             return 0;
             
-            //TODO Guardar los cambios 
+            
             
         } catch(DOMException e) {
             System.out.println(e);
