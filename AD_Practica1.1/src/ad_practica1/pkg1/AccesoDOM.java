@@ -126,14 +126,13 @@ public class AccesoDOM {
         try {
             System.out.println("Añadir libro al DOM: "+titulo+";"+autor+";"+fecha);
             
-            //CREAMOS TITULO
-            //Crea las etiquetas <Titulo></Titulo>
+            //Creamos el nodo del Titulo
             Node ntitulo = doc.createElement("Titulo");
             //Creamos el valor que llevará la etiqueta y se lo asignamos
             Node ntitulo_text = doc.createTextNode(titulo);
             ntitulo.appendChild(ntitulo_text);
             
-            //CREAMOS AUTOR
+            //CREAMOS el nodo del autor
             Node nautor = doc.createElement("Autor");
             Node nautor_text = doc.createTextNode(autor);
             nautor.appendChild(nautor_text);
@@ -152,7 +151,7 @@ public class AccesoDOM {
             raiz.appendChild(nLibro);
             System.out.println("Libro inserado en DOM");
             System.out.println("Si quieres guardar los cambios en un fichero utiliza el metodo"
-                    + "guardarDOMcomoArchivo(String nombreFichero");
+                    + "guardarDOMcomoArchivo(String nombreFichero)");
             return 0;
         
         } catch (DOMException e) {
